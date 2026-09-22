@@ -1,0 +1,43 @@
+{
+  "scope": "Runtime-only total-deadline enforcement for the known single Popen campaign worker",
+  "old_campaign_sha256": "3912323eebe3dd363a58fd3d515c8e5d6da225661c11d0eceef25f04364d8cb0",
+  "new_campaign_sha256": "a92d3ed5cfc3fd0e637737df05e1acad34123db6775fe7d6af40c9c021ae6c3e",
+  "source_modules_changed": [
+    "campaign.py"
+  ],
+  "existing_functions_changed": [
+    "_main"
+  ],
+  "functions_added": [
+    "wait_worker_until"
+  ],
+  "unchanged_function_asts": [
+    "specification",
+    "fixed_control",
+    "evaluation_with_cost",
+    "worker",
+    "tasks",
+    "summarize",
+    "main"
+  ],
+  "patch": "reports/campaign-deadline.patch",
+  "new_tests": "tests/test_campaign_deadline.py",
+  "targeted_test_result": {
+    "command": ".venv/bin/python -m pytest tests/test_campaign_deadline.py -q -p no:cacheprovider",
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 1.49
+  },
+  "ruff_passed": true,
+  "total_worker_limit_seconds": 7200,
+  "term_reserve_seconds": 10,
+  "kill_reap_reserve_seconds": 1,
+  "unknown_reap_status": "TIMEOUT_UNREAPED",
+  "unknown_reap_blocks_current_and_future_submissions": true,
+  "process_identity_boundary": "Popen.terminate()/kill()/bounded wait only; no raw PID or process-group signalling; no descendant cleanup guarantee.",
+  "receipt_count_checked": 45,
+  "maximum_observed_worker_seconds": 594.0079962909222,
+  "existing_scientific_results_reusable": true,
+  "reuse_reason": "Only lifecycle supervision changed; all old workers finished below 600 seconds, before either timeout threshold; mathematical functions, controller, thresholds and frozen benchmark specification are unchanged."
+}

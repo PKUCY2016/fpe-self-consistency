@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.local/
+runs/
+tmp/
+.DS_Store
+*.egg-info/
+# Keep the distributable wheel out of source history; build locally with `uv build`.
+dist/*.whl
+# Remote runtime receipts may contain machine-specific paths and are kept in the delivery archive.
+deploy/evidence/
+
+output/

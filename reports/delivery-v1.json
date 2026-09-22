@@ -1,0 +1,1079 @@
+{
+  "status": "PASS",
+  "created_utc": "2026-09-22T09:43:46.694267+00:00",
+  "scope": "macOS CPU installed wheel, uniform smoke train/evaluate and intermediate-time API",
+  "scientific_acceptance": false,
+  "cloud_verified": false,
+  "skill": "delivery-runtime-validation",
+  "skill_helper_adaptation": "Uses uv clean installation with locked runtime dependencies; bundled helper supports no-deps wheels only.",
+  "artifact": {
+    "wheel": "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/dist/fpe_self_consistency-0.1.0-py3-none-any.whl",
+    "wheel_sha256": "4ec7100005c48dfb9502467374d2f18cf76570d75f26bab2889fec4b2a23bca0",
+    "source_root": "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver",
+    "source_hashes": {
+      "basis.py": "b80fd1d5b5e1b18b2b6f42ba8bc052eb5ec72b1159245a521bebb1409cf6b2c5",
+      "runner.py": "a35f2c8ca1324fdcc016b41ae051a49204ccc627db6dd3fc15fd9bdc1f5dc91d",
+      "controller.py": "e9859115f95a2a60dd4c0af4c66951c270e41e154247b8ea4e0990f5298cca40",
+      "config.py": "804106d6280d6613268937cbe359734a9f74a0538207733b35452162fa3a2812",
+      "diagnostics.py": "1c0b2336c5fbc9d91d77d9db79a140401922ccb5c3c80b21182cdf0dab5ea319",
+      "evaluation.py": "785f42a316a5b5462d4f0235049403fc3ff4ec94cedf9d6695ec2eed13a059f6",
+      "__init__.py": "37d5a08bd3e073a0d90a12cd3b369e540bcdc52c12a18ba8c7c13f8cf37fcc26",
+      "flow.py": "d0dd62a9c1fe3e22b875e56aad1828ccc6d43776052133e6ca280818b0a62129",
+      "campaign.py": "3912323eebe3dd363a58fd3d515c8e5d6da225661c11d0eceef25f04364d8cb0",
+      "api.py": "b069cdf2e103a28085341b0542b8bb4c1940b038b32ed1876c13cd48581dd0ac",
+      "problems.py": "3b4f2749cf7badf52a1306f2e041fedc88dd642b1120538b9629a04b648178bc",
+      "cli.py": "e99f616b2529916edbcfa7a6c3ab0b16fbf473a84300681759db7672a839e577",
+      "image_experiment.py": "10ed637fdfa2ff819262d6ea6fab16b683ea6d24697840b452073fa80d1237a5",
+      "storage.py": "02a1d2185e0e7aef983a03d97a1a3f245bcfaa644f60efe33546b98b794b5ed2",
+      "reference.py": "361d212f2a9de02adc931f318c623808badaccbceff1d7606e050f40f680340d",
+      "training.py": "1fb5f7897063fa1c3ee9d9f48e0cc37495212e3817bf7338c6736a76dda5976b"
+    },
+    "wheel_matches_source": {
+      "basis.py": true,
+      "runner.py": true,
+      "controller.py": true,
+      "config.py": true,
+      "diagnostics.py": true,
+      "evaluation.py": true,
+      "__init__.py": true,
+      "flow.py": true,
+      "campaign.py": true,
+      "api.py": true,
+      "problems.py": true,
+      "cli.py": true,
+      "image_experiment.py": true,
+      "storage.py": true,
+      "reference.py": true,
+      "training.py": true
+    },
+    "uv_lock_sha256": "1a88d1c987c599d1817dea80d78327ba308c47420a9d978b6f5760ca27e495c4"
+  },
+  "workspace": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+  "venv": "/private/tmp/fpe-wheel-delivery-swhov50u/env",
+  "installation": {
+    "offline": true,
+    "editable": false,
+    "system_site_packages": false,
+    "runtime_requirements_sha256": "d71889c99e8c66199f288887fdcb609a978ef2636888cb642f1b0b3eacec518d",
+    "dependency_command": [
+      "uv",
+      "pip",
+      "install",
+      "--offline",
+      "--python",
+      "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/python",
+      "--require-hashes",
+      "-r",
+      "/private/tmp/fpe-wheel-delivery-swhov50u/requirements.lock"
+    ],
+    "wheel_command": [
+      "uv",
+      "pip",
+      "install",
+      "--offline",
+      "--no-deps",
+      "--python",
+      "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/python",
+      "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/dist/fpe_self_consistency-0.1.0-py3-none-any.whl"
+    ],
+    "pyvenv_cfg": "home = /Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin\nimplementation = CPython\nuv = 0.12.3\nversion_info = 3.12.12\ninclude-system-site-packages = false\n"
+  },
+  "commands": [
+    {
+      "name": "import-probe",
+      "argv": [
+        "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/python",
+        "-I",
+        "-c",
+        "\nimport hashlib, importlib, importlib.metadata, json, pathlib, site, sys\nfrom urllib.parse import unquote, urlparse\nmanifest=json.loads(pathlib.Path(sys.argv[1]).read_text())\nroot=pathlib.Path(sys.prefix).resolve()\nsource=pathlib.Path(manifest['source_root']).resolve()\norigins={}\nfor filename in manifest['source_hashes']:\n    name='fpe_solver' if filename=='__init__.py' else 'fpe_solver.'+filename[:-3]\n    module=importlib.import_module(name)\n    origin=pathlib.Path(module.__file__).resolve()\n    assert root in origin.parents, (name,str(origin))\n    assert source not in origin.parents\n    assert hashlib.sha256(origin.read_bytes()).hexdigest()==manifest['source_hashes'][filename]\n    origins[name]=str(origin)\ndistribution=importlib.metadata.distribution('fpe-self-consistency')\ndirect_url=json.loads(distribution.read_text('direct_url.json'))\nassert not direct_url.get('dir_info',{}).get('editable',False)\nassert pathlib.Path(unquote(urlparse(direct_url['url']).path)).resolve()==pathlib.Path(manifest['wheel']).resolve()\nassert all(source not in pathlib.Path(p or '.').resolve().parents and pathlib.Path(p or '.').resolve()!=source for p in sys.path)\nprint(json.dumps({'python':sys.version,'executable':sys.executable,'prefix':sys.prefix,'base_prefix':sys.base_prefix,\n 'isolated':bool(sys.flags.isolated),'user_site_enabled':site.ENABLE_USER_SITE,'sys_path':sys.path,\n 'module_origins':origins,'all_installed_module_hashes_match_frozen_source':True,'direct_url':direct_url,\n 'installed_versions':{d.metadata['Name']:d.version for d in importlib.metadata.distributions()}},indent=2))\n",
+        "/private/tmp/fpe-wheel-delivery-swhov50u/manifest.json"
+      ],
+      "cwd": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+      "returncode": 0,
+      "seconds": 0.6673057910520583,
+      "stdout": "/private/tmp/fpe-wheel-delivery-swhov50u/import-probe.stdout.log",
+      "stderr": "/private/tmp/fpe-wheel-delivery-swhov50u/import-probe.stderr.log",
+      "stdout_sha256": "2ba1d3a0d2cd25ae7cf9b98fbdb219bd9eaf7d9247d608596a69fb6e16071edd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "doctor",
+      "argv": [
+        "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/fpe",
+        "doctor"
+      ],
+      "cwd": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+      "returncode": 0,
+      "seconds": 1.1061821661423892,
+      "stdout": "/private/tmp/fpe-wheel-delivery-swhov50u/doctor.stdout.log",
+      "stderr": "/private/tmp/fpe-wheel-delivery-swhov50u/doctor.stderr.log",
+      "stdout_sha256": "bc97aeb7964a9ba54b47443df68011f4449f74b23f7e019b8b61bef517fa7602",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "train",
+      "argv": [
+        "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/fpe",
+        "train",
+        "--problem",
+        "uniform",
+        "--config",
+        "/private/tmp/fpe-wheel-delivery-swhov50u/work/smoke-config.json",
+        "--seed",
+        "0",
+        "--run",
+        "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run"
+      ],
+      "cwd": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+      "returncode": 0,
+      "seconds": 4.242767666000873,
+      "stdout": "/private/tmp/fpe-wheel-delivery-swhov50u/train.stdout.log",
+      "stderr": "/private/tmp/fpe-wheel-delivery-swhov50u/train.stderr.log",
+      "stdout_sha256": "1e66a2133d6dee46f08efcfbc492129ffb6296e82a224f6614de9bc7066cf684",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "evaluate",
+      "argv": [
+        "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/fpe",
+        "evaluate",
+        "--run",
+        "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run",
+        "--grid-size",
+        "16"
+      ],
+      "cwd": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+      "returncode": 0,
+      "seconds": 0.5551706249825656,
+      "stdout": "/private/tmp/fpe-wheel-delivery-swhov50u/evaluate.stdout.log",
+      "stderr": "/private/tmp/fpe-wheel-delivery-swhov50u/evaluate.stderr.log",
+      "stdout_sha256": "b1df37010f36f080cd0dfc4b83c3d4c4af741cdaf69cbbf85cb9f5a1b2a01817",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "api",
+      "argv": [
+        "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/python",
+        "-I",
+        "-c",
+        "\nimport json, math, sys\nimport numpy as np\nfrom fpe_solver.api import ProbabilityFlow\nflow=ProbabilityFlow.load(sys.argv[1])\nassert flow.steps==8\nsamples=flow.sample(17,t=.5,seed=42)\nlogs=flow.log_density(samples,t=.5)\nassert samples.shape==(17,1) and np.isfinite(samples).all()\nassert samples.dtype==np.float64\nassert np.all((samples>=0)&(samples<2*np.pi))\nassert np.max(np.abs(logs+math.log(2*math.pi)))<1e-12\nprint(json.dumps({'sample_shape':list(samples.shape),'dtype':str(samples.dtype),'time':.5,\n 'log_density_max_abs_error':float(np.max(np.abs(logs+math.log(2*math.pi)))),'saved_steps':flow.steps}))\n",
+        "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run"
+      ],
+      "cwd": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+      "returncode": 0,
+      "seconds": 0.7964035829063505,
+      "stdout": "/private/tmp/fpe-wheel-delivery-swhov50u/api.stdout.log",
+      "stderr": "/private/tmp/fpe-wheel-delivery-swhov50u/api.stderr.log",
+      "stdout_sha256": "1f4ddf2c4b529d25b75040f2440cb7a20c0ca447b109ae866117beed99075813",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "resume",
+      "argv": [
+        "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/fpe",
+        "resume",
+        "--run",
+        "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run"
+      ],
+      "cwd": "/private/tmp/fpe-wheel-delivery-swhov50u/work",
+      "returncode": 0,
+      "seconds": 0.28999399999156594,
+      "stdout": "/private/tmp/fpe-wheel-delivery-swhov50u/resume.stdout.log",
+      "stderr": "/private/tmp/fpe-wheel-delivery-swhov50u/resume.stderr.log",
+      "stdout_sha256": "1e66a2133d6dee46f08efcfbc492129ffb6296e82a224f6614de9bc7066cf684",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "harness_adjustment": {
+    "earlier_attempt": "/private/tmp/fpe-wheel-delivery-swhov50u/first-probe-unsupported-metadata.json",
+    "reason": "uv direct_url archive_info has no hash; verified actual installed module hashes and wheel URL instead."
+  },
+  "installation_probe": {
+    "python": "3.12.12 (main, Jan 14 2026, 23:36:32) [Clang 21.1.4 ]",
+    "executable": "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/python",
+    "prefix": "/private/tmp/fpe-wheel-delivery-swhov50u/env",
+    "base_prefix": "/Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none",
+    "isolated": true,
+    "user_site_enabled": false,
+    "sys_path": [
+      "/Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python312.zip",
+      "/Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12",
+      "/Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/lib-dynload",
+      "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages"
+    ],
+    "module_origins": {
+      "fpe_solver.basis": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/basis.py",
+      "fpe_solver.runner": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/runner.py",
+      "fpe_solver.controller": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/controller.py",
+      "fpe_solver.config": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/config.py",
+      "fpe_solver.diagnostics": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/diagnostics.py",
+      "fpe_solver.evaluation": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/evaluation.py",
+      "fpe_solver": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/__init__.py",
+      "fpe_solver.flow": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/flow.py",
+      "fpe_solver.campaign": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/campaign.py",
+      "fpe_solver.api": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/api.py",
+      "fpe_solver.problems": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/problems.py",
+      "fpe_solver.cli": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/cli.py",
+      "fpe_solver.image_experiment": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/image_experiment.py",
+      "fpe_solver.storage": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/storage.py",
+      "fpe_solver.reference": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/reference.py",
+      "fpe_solver.training": "/private/tmp/fpe-wheel-delivery-swhov50u/env/lib/python3.12/site-packages/fpe_solver/training.py"
+    },
+    "all_installed_module_hashes_match_frozen_source": true,
+    "direct_url": {
+      "url": "file:///Users/yuchen/3.%20Project/Low%20priority/%E9%9A%8F%E6%9C%BA%E5%88%86%E6%9E%90%E8%AF%81%E6%98%8E/fpe_solver/dist/fpe_self_consistency-0.1.0-py3-none-any.whl",
+      "archive_info": {}
+    },
+    "installed_versions": {
+      "numpy": "2.5.3",
+      "kiwisolver": "1.5.1",
+      "optax": "0.2.8",
+      "packaging": "26.3",
+      "fonttools": "4.65.0",
+      "opt_einsum": "3.4.0",
+      "contourpy": "1.4.0",
+      "absl-py": "2.5.0",
+      "python-dateutil": "2.9.0.post0",
+      "matplotlib": "3.11.2",
+      "fpe-self-consistency": "0.1.0",
+      "cycler": "0.12.1",
+      "jaxlib": "0.11.2",
+      "ml_dtypes": "0.6.0",
+      "jax": "0.11.2",
+      "pillow": "12.3.0",
+      "pyparsing": "3.3.3",
+      "six": "1.17.0",
+      "scipy": "1.18.1"
+    }
+  },
+  "entry": {
+    "path": "/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/fpe",
+    "sha256": "606053f4eb3448b9f6c95fa70a1386f7781815c3b4504df9900ec6062e1c5b1a",
+    "shebang": "#!/private/tmp/fpe-wheel-delivery-swhov50u/env/bin/python"
+  },
+  "doctor": {
+    "python": "3.12.12",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "versions": {
+      "jax": "0.11.2",
+      "jaxlib": "0.11.2",
+      "optax": "0.2.8",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "source_hashes": {
+      "basis.py": "b80fd1d5b5e1b18b2b6f42ba8bc052eb5ec72b1159245a521bebb1409cf6b2c5",
+      "runner.py": "a35f2c8ca1324fdcc016b41ae051a49204ccc627db6dd3fc15fd9bdc1f5dc91d",
+      "controller.py": "e9859115f95a2a60dd4c0af4c66951c270e41e154247b8ea4e0990f5298cca40",
+      "config.py": "804106d6280d6613268937cbe359734a9f74a0538207733b35452162fa3a2812",
+      "diagnostics.py": "1c0b2336c5fbc9d91d77d9db79a140401922ccb5c3c80b21182cdf0dab5ea319",
+      "evaluation.py": "785f42a316a5b5462d4f0235049403fc3ff4ec94cedf9d6695ec2eed13a059f6",
+      "__init__.py": "37d5a08bd3e073a0d90a12cd3b369e540bcdc52c12a18ba8c7c13f8cf37fcc26",
+      "flow.py": "d0dd62a9c1fe3e22b875e56aad1828ccc6d43776052133e6ca280818b0a62129",
+      "campaign.py": "3912323eebe3dd363a58fd3d515c8e5d6da225661c11d0eceef25f04364d8cb0",
+      "api.py": "b069cdf2e103a28085341b0542b8bb4c1940b038b32ed1876c13cd48581dd0ac",
+      "problems.py": "3b4f2749cf7badf52a1306f2e041fedc88dd642b1120538b9629a04b648178bc",
+      "cli.py": "e99f616b2529916edbcfa7a6c3ab0b16fbf473a84300681759db7672a839e577",
+      "image_experiment.py": "10ed637fdfa2ff819262d6ea6fab16b683ea6d24697840b452073fa80d1237a5",
+      "storage.py": "02a1d2185e0e7aef983a03d97a1a3f245bcfaa644f60efe33546b98b794b5ed2",
+      "reference.py": "361d212f2a9de02adc931f318c623808badaccbceff1d7606e050f40f680340d",
+      "training.py": "1fb5f7897063fa1c3ee9d9f48e0cc37495212e3817bf7338c6736a76dda5976b"
+    },
+    "devices": [
+      "cpu:0"
+    ],
+    "float64": true
+  },
+  "train": {
+    "run": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run",
+    "status": "TRAINED",
+    "rounds": 1,
+    "elapsed_seconds": 3.9044253749307245,
+    "evidence_type": "empirical"
+  },
+  "evaluation_cli": {
+    "report": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run/evaluation.json",
+    "result": {
+      "kind": "empirical_uncertified",
+      "thresholds": {
+        "kl": 0.001,
+        "tv": 0.02,
+        "well_mass": 0.01,
+        "mass": 0.0001,
+        "reference_refinement_tv": 0.0002,
+        "model_refinement_tv": 0.001
+      },
+      "problem": {
+        "name": "uniform",
+        "dim": 1,
+        "T": 1.0,
+        "amplitude": 0.0,
+        "frequency": 1,
+        "phase": 0.0,
+        "kappa": 0.0,
+        "coupling": 0.0
+      },
+      "times": [
+        0.0,
+        0.05,
+        0.1,
+        0.15000000000000002,
+        0.2,
+        0.25,
+        0.30000000000000004,
+        0.35000000000000003,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6000000000000001,
+        0.65,
+        0.7000000000000001,
+        0.75,
+        0.8,
+        0.8500000000000001,
+        0.9,
+        0.9500000000000001,
+        1.0
+      ],
+      "reference_method": "analytic_heat_cell_averages",
+      "controller_access": "forbidden",
+      "refinement_history": [
+        {
+          "kind": "reference",
+          "coarse": 16,
+          "fine": 32,
+          "max_tv": 0.0
+        }
+      ],
+      "roundoff_clipping": "none",
+      "renormalization": "none",
+      "grid_size": 32,
+      "metrics": [
+        {
+          "time": 0.0,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.05,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.1,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.15000000000000002,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.2,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.25,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.30000000000000004,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.35000000000000003,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.4,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.45,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.5,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.55,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.6000000000000001,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.65,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.7000000000000001,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.75,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.8,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.8500000000000001,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.9,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 0.9500000000000001,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        },
+        {
+          "time": 1.0,
+          "raw_mass": 1.0,
+          "reference_mass": 1.0,
+          "mass_error": 0.0,
+          "kl": 0.0,
+          "generalized_kl": 0.0,
+          "tv": 0.0,
+          "well_mass_error": 0.0,
+          "well_model": [
+            0.5,
+            0.5
+          ],
+          "well_reference": [
+            0.5,
+            0.5
+          ],
+          "observable_order": "cos coordinates, sin coordinates, cos(x)>=0 coordinate wells",
+          "observable_model": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_reference": [
+            -4.765003396961153e-17,
+            -1.0737075418181752e-17,
+            0.49999999999999994
+          ],
+          "observable_max_error": 0.0
+        }
+      ],
+      "maxima": {
+        "mass_error": 0.0,
+        "kl": 0.0,
+        "generalized_kl": 0.0,
+        "tv": 0.0,
+        "well_mass_error": 0.0
+      },
+      "checks": {
+        "mass": true,
+        "kl": true,
+        "tv": true,
+        "well_mass": true,
+        "reference_refinement": true,
+        "model_numerical_refinement": true,
+        "model_quadrature_refinement": true
+      },
+      "passed": true,
+      "status": "passed_empirical",
+      "reference_refinement_tv": 0.0,
+      "model_numerical_refinement_tv": 0.0,
+      "model_quadrature_refinement_tv": 0.0,
+      "costs_seconds": {
+        "reference": 0.0008314992301166058,
+        "density_queries_and_refinement": 0.07083366718143225,
+        "total": 0.07227304088883102
+      },
+      "limitations": [
+        "Grid and tolerance refinement are empirical, not certified error bounds.",
+        "Population residual and statistical confidence are not certified.",
+        "Positive raw densities are never renormalized before metrics."
+      ],
+      "checkpoint": {
+        "file": "checkpoints/round-000-update-00002.npz",
+        "sha256": "de4eda402c9390ae5de65e9869476fb6dcadb95403023abef3243d143dd00c1c"
+      }
+    }
+  },
+  "api": {
+    "sample_shape": [
+      17,
+      1
+    ],
+    "dtype": "float64",
+    "time": 0.5,
+    "log_density_max_abs_error": 0.0,
+    "saved_steps": 8
+  },
+  "resume": {
+    "run": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run",
+    "status": "TRAINED",
+    "rounds": 1,
+    "elapsed_seconds": 3.9044253749307245,
+    "evidence_type": "empirical"
+  },
+  "terminal_resume_is_noop": true,
+  "expected_artifacts": [
+    {
+      "path": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run/state.json",
+      "exists": true,
+      "sha256": "311cf76be0dafed175b950f23116bb487b488f93e9dd9c4691609cd58162dcd7"
+    },
+    {
+      "path": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run/round-000.json",
+      "exists": true,
+      "sha256": "322534d1f660b0b6d5c867ea149e40e4a63ef81428372eb5c63a6a2430b20293"
+    },
+    {
+      "path": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run/evaluation.json",
+      "exists": true,
+      "sha256": "e9b4e9165aa9e17b1ba4110bcef5933072fa517885a689d86baf35f0e5129103"
+    },
+    {
+      "path": "/private/tmp/fpe-wheel-delivery-swhov50u/work/uniform-run/checkpoints/round-000-update-00002.npz",
+      "exists": true,
+      "sha256": "de4eda402c9390ae5de65e9869476fb6dcadb95403023abef3243d143dd00c1c"
+    }
+  ],
+  "source_unchanged_during_check": true,
+  "finished_utc": "2026-09-22T09:43:54.358992+00:00",
+  "smoke_configuration": {
+    "K": 1,
+    "p": 1,
+    "batch": 8,
+    "steps": 8,
+    "updates": 2,
+    "validation_samples": 8,
+    "max_validation_samples": 8,
+    "max_rounds": 1,
+    "max_seconds": 120
+  },
+  "evidence_retention": "Temporary environment, command logs and smoke outputs retained at the listed paths; hashes embedded in this receipt.",
+  "limitations": [
+    "PASS covers the frozen wheel installation, listed imports, CLI smoke commands, and midpoint API on macOS CPU.",
+    "Uniform smoke acceptance is not the full scientific benchmark, an image-quality result, or a DSW runtime check."
+  ]
+}

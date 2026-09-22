@@ -1,0 +1,6 @@
+{"task": "audit-0-s0", "process_status": "EXITED", "seconds": 11.036550750024617}
+{"task": "audit-1-s0", "process_status": "EXITED", "seconds": 427.0787880409043}
+{"task": "audit-0-s1", "process_status": "EXITED", "seconds": 10.543072083033621}
+{"task": "audit-1-s1", "process_status": "EXITED", "seconds": 162.42534170788713}
+{"task": "audit-0-s2", "process_status": "EXITED", "seconds": 9.318302458850667}
+{"task": "audit-1-s2", "process_status": "EXITED", "seconds": 285.47211829200387}

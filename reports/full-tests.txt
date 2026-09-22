@@ -1,0 +1,9 @@
+........................................................................ [ 91%]
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+tests/test_image.py::test_synthetic_training_executes_and_reports_raw_residual
+  /Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/.venv/lib/python3.12/site-packages/optax/_src/linear_algebra.py:44: DeprecationWarning: optax.global_norm is deprecated in favor of optax.tree.norm
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+79 passed, 1 warning in 19.22s

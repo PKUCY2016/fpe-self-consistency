@@ -1,0 +1,21 @@
+{"task": "adaptive-uniform-s0", "process_status": "EXITED", "seconds": 13.308802041923627}
+{"task": "adaptive-heat1d-s0", "process_status": "EXITED", "seconds": 13.150755209149793}
+{"task": "adaptive-heat2d-s0", "process_status": "EXITED", "seconds": 114.92718991707079}
+{"task": "adaptive-doublewell-s0", "process_status": "EXITED", "seconds": 34.08639304107055}
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/src/fpe_solver/campaign.py", line 284, in <module>
+    main()
+  File "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/src/fpe_solver/campaign.py", line 280, in main
+    return _main(argv)
+           ^^^^^^^^^^^
+  File "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/src/fpe_solver/campaign.py", line 251, in _main
+    code = process.wait(timeout=min(7500., 28800-spent))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yuchen/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/subprocess.py", line 2047, in _wait
+    time.sleep(delay)
+KeyboardInterrupt

@@ -1,0 +1,22 @@
+[
+  {
+    "phase": "control",
+    "returncode": 0,
+    "wall_seconds": 302.6684980392456
+  },
+  {
+    "phase": "adaptive",
+    "returncode": 0,
+    "wall_seconds": 1883.3997919559479
+  },
+  {
+    "phase": "audit",
+    "returncode": 0,
+    "wall_seconds": 906.5668380260468
+  },
+  {
+    "phase": "stress",
+    "returncode": 0,
+    "wall_seconds": 171.34209203720093
+  }
+]

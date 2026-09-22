@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fpe-self-consistency"
+version = "0.1.0"
+description = "Empirically validated adaptive probability flows for periodic Fokker-Planck equations"
+requires-python = ">=3.12,<3.13"
+dependencies = ["jax>=0.4.38", "optax>=0.2.4", "numpy>=2.0", "scipy>=1.14", "matplotlib>=3.9"]
+
+[project.scripts]
+fpe = "fpe_solver.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fpe_solver"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: numerical validation and training"]
+
+[tool.ruff]
+line-length = 110
+

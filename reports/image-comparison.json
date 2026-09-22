@@ -1,0 +1,19 @@
+{
+  "status": "VISUAL_GENERATION_FAILED",
+  "dimensions": 3072,
+  "seeds": [
+    0
+  ],
+  "ranks": [
+    32,
+    128
+  ],
+  "updates_each": 500,
+  "residual_per_coordinate": [
+    15.681304772166088,
+    10.427015653764181
+  ],
+  "relative_residual_reduction": 0.3350670875122671,
+  "visual_review": "All 64 independent samples for both ranks were inspected. Outputs remain colored noise and blurry blobs, without recognizable natural objects.",
+  "limitations": "Two architectures at one seed; no general impossibility claim. No FID, no proof of novelty. Cold starts, not function-preserving self-evolution."
+}

@@ -1,0 +1,99 @@
+--- a/src/fpe_solver/campaign.py
++++ b/src/fpe_solver/campaign.py
+@@ -4,7 +4,6 @@
+ import argparse
+ import hashlib
+ import json
+-import os
+ import subprocess
+ import sys
+ import time
+@@ -207,6 +206,44 @@
+     return report
+ 
+ 
++def wait_worker_until(process, deadline):
++    """Bound this single Popen worker by one total monotonic deadline.
++
++    Ten seconds are reserved for TERM and one for KILL/reaping. Popen's
++    terminate/kill target the tracked leader; this helper does not certify
++    descendant-process cleanup. Campaign workers launch no child processes.
++    An unconfirmed reap is unresolved and must block further submission.
++    """
++    try:
++        code = process.wait(timeout=max(0., deadline-time.monotonic()-11.))
++        if time.monotonic() <= deadline:
++            return code, "EXITED" if code == 0 else "FAILED"
++    except (subprocess.TimeoutExpired, OSError):
++        pass
++
++    term_deadline = min(deadline-1., time.monotonic()+10.)
++    try:
++        process.terminate()
++    except OSError:
++        pass  # A concurrent exit is resolved by the bounded wait below.
++    try:
++        code = process.wait(timeout=max(0., term_deadline-time.monotonic()))
++        return code, "TIMEOUT"
++    except (subprocess.TimeoutExpired, OSError):
++        pass
++
++    reap_deadline = min(deadline, time.monotonic()+1.)
++    try:
++        process.kill()
++    except OSError:
++        pass
++    try:
++        code = process.wait(timeout=max(0., reap_deadline-time.monotonic()))
++        return code, "TIMEOUT"
++    except (subprocess.TimeoutExpired, OSError):
++        return process.returncode, "TIMEOUT_UNREAPED"
++
++
+ def _main(argv=None):
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--out", type=Path, required=True)
+@@ -228,13 +265,13 @@
+         print(json.dumps(summarize(args.out), indent=2))
+         return
+     spent = sum(read_json(p).get("wall_seconds", 0.) for p in args.out.glob("*.receipt.json"))
+-    unresolved = [p for p in args.out.glob("*.receipt.json") if read_json(p)["status"] == "RUNNING"]
++    unresolved = [p for p in args.out.glob("*.receipt.json") if read_json(p)["status"] in {"RUNNING", "TIMEOUT_UNREAPED"}]
+     if unresolved:
+         raise RuntimeError(f"Unresolved campaign jobs: {unresolved}; query their original processes first")
+     for name, spec in tasks(args.phase):
+         path, receipt = args.out/name, args.out/f"{name}.receipt.json"
+         if receipt.exists():
+-            if read_json(receipt)["status"] == "RUNNING":
++            if read_json(receipt)["status"] in {"RUNNING", "TIMEOUT_UNREAPED"}:
+                 raise RuntimeError(f"Uncertain existing task {name}; inspect process before resubmission")
+             continue
+         if path.exists():
+@@ -247,23 +284,15 @@
+         with (args.out/f"{name}.log").open("w") as log:
+             process = subprocess.Popen([sys.executable, "-m", "fpe_solver.campaign", "--out", str(path), "--worker-spec", str(spec_path)], stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+             write_json(receipt, {"status": "RUNNING", "pid": process.pid, "request": spec})
+-            try:
+-                code = process.wait(timeout=min(7500., 28800-spent))
+-                status = "EXITED" if code == 0 else "FAILED"
+-            except subprocess.TimeoutExpired:
+-                import signal
+-                os.killpg(process.pid, signal.SIGTERM)
+-                try:
+-                    process.wait(timeout=10)
+-                except subprocess.TimeoutExpired:
+-                    os.killpg(process.pid, signal.SIGKILL)
+-                    process.wait()
+-                code, status = process.returncode, "TIMEOUT"
++            deadline = started + min(7200., 28800-spent)
++            code, status = wait_worker_until(process, deadline)
+         duration = time.monotonic()-started
+         spent += duration
+         write_json(receipt, {"status": status, "pid": process.pid, "exit_code": code, "wall_seconds": duration, "request": spec})
+         print(json.dumps({"task": name, "process_status": status, "seconds": duration}), flush=True)
+         summarize(args.out)
++        if status == "TIMEOUT_UNREAPED":
++            raise RuntimeError(f"Worker {name} was not confirmed reaped; inspect the original worker before continuing")
+ 
+ 
+ def main(argv=None):

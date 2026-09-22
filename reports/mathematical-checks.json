@@ -1,0 +1,222 @@
+{
+  "kind": "empirical_mathematical_implementation_checks",
+  "created_utc": "2026-09-22T09:47:27.895502+00:00",
+  "checkpoint": {
+    "run": "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/runs/acceptance-v1/adaptive-doublewell-s0",
+    "problem": {
+      "name": "doublewell",
+      "dim": 1,
+      "T": 1.0,
+      "amplitude": 0.5,
+      "frequency": 1,
+      "phase": 0.0,
+      "kappa": 1.0,
+      "coupling": 0.0
+    },
+    "basis": {
+      "dim": 1,
+      "K": 4,
+      "p": 3,
+      "T": 1.0
+    },
+    "steps": 128,
+    "state_sha256": "545253fe30624802d67f83eec9e37a801ad315230d745156722695c49d14423d",
+    "checkpoint": {
+      "file": "checkpoints/round-002-update-00500.npz",
+      "sha256": "c4a3002ec052a26935f6301c9a924ca5c8d16be92b4ae4f18a226fa870e688dd"
+    },
+    "initial_points": [
+      [
+        0.37
+      ],
+      [
+        2.1
+      ]
+    ]
+  },
+  "score_change_of_variables": {
+    "passed": true,
+    "normalized_rms": 1.3245406559596865e-08,
+    "finite": true,
+    "min_det": 0.6067060676636823,
+    "log_density_rms": 4.78642604974847e-09,
+    "max_condition": 1.0,
+    "samples": 2,
+    "tolerance": 0.0001
+  },
+  "score_seconds": 2.003611291060224,
+  "endpoint_high_order_residual": {
+    "finite": true,
+    "orientation_positive": true,
+    "residual_mean_square": 0.005959029069611022,
+    "gradient_mean_square": 0.3625849127067614,
+    "hessian_mean_square": 9.613240358450966,
+    "samples": 2,
+    "time": 1.0,
+    "scope": "endpoint empirical diagnostic only"
+  },
+  "high_order_seconds": 1.9009138329420239,
+  "directional_gradient": {
+    "source_test": "tests/test_core.py::test_discrete_directional_gradient",
+    "problem": {
+      "name": "heat1d",
+      "dim": 1,
+      "T": 0.3,
+      "amplitude": 0.35,
+      "frequency": 1,
+      "phase": 0.0,
+      "kappa": 0.2,
+      "coupling": 0.0
+    },
+    "basis": {
+      "dim": 1,
+      "K": 2,
+      "p": 2,
+      "T": 0.3
+    },
+    "seed": 17,
+    "coefficient_scale": 0.03,
+    "steps": 12,
+    "initial_points": [
+      [
+        0.2
+      ],
+      [
+        1.3
+      ],
+      [
+        4.1
+      ]
+    ],
+    "coefficient_values": [
+      [
+        [
+          0.03303787360517541
+        ],
+        [
+          0.010152938299385333
+        ],
+        [
+          -0.016199145457605105
+        ],
+        [
+          -0.03780725570557298
+        ],
+        [
+          -0.056838638095177654
+        ]
+      ],
+      [
+        [
+          0.0005591487294985684
+        ],
+        [
+          -0.024317012985348083
+        ],
+        [
+          -0.026164678798035395
+        ],
+        [
+          -0.006659085212516731
+        ],
+        [
+          -0.0015553808439605313
+        ]
+      ],
+      [
+        [
+          -0.06830348447327492
+        ],
+        [
+          0.027754397717292795
+        ],
+        [
+          -0.06080536817730078
+        ],
+        [
+          0.0557887232566304
+        ],
+        [
+          0.017717043347995873
+        ]
+      ]
+    ],
+    "direction": [
+      [
+        [
+          -0.09514421472003821
+        ],
+        [
+          0.2708060515916006
+        ],
+        [
+          0.004191447648405904
+        ],
+        [
+          0.1393194799808039
+        ],
+        [
+          0.021621606013540694
+        ]
+      ],
+      [
+        [
+          0.22110804103672538
+        ],
+        [
+          0.21402856667134335
+        ],
+        [
+          -0.18295771393731125
+        ],
+        [
+          -0.12350477126033396
+        ],
+        [
+          0.06920938378833584
+        ]
+      ],
+      [
+        [
+          -0.042347108406839626
+        ],
+        [
+          -0.46073729900853017
+        ],
+        [
+          0.40855272103885326
+        ],
+        [
+          -0.4385692878011376
+        ],
+        [
+          -0.4197288568894577
+        ]
+      ]
+    ],
+    "epsilon": 1e-05,
+    "loss_plus": 0.05550879609753741,
+    "loss_minus": 0.05550934741393499,
+    "automatic_directional_derivative": -0.02756581987863362,
+    "central_finite_difference": -0.027565819879157846,
+    "normalized_difference": 5.242264955462872e-13,
+    "normalization": "abs(ad-fd)/max(1,abs(fd))",
+    "acceptance_threshold": 0.0001,
+    "test_stricter_threshold": 1e-07,
+    "passed": true,
+    "stricter_test_passed": true,
+    "seconds": 0.8101729999762028
+  },
+  "float64": true,
+  "source_files": {
+    "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/src/fpe_solver/diagnostics.py": "1c0b2336c5fbc9d91d77d9db79a140401922ccb5c3c80b21182cdf0dab5ea319",
+    "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/src/fpe_solver/flow.py": "d0dd62a9c1fe3e22b875e56aad1828ccc6d43776052133e6ca280818b0a62129"
+  },
+  "checks_passed": true,
+  "limitations": [
+    "High-order residual covers two fixed initial points at terminal time only; it is not the paper's time-integrated full Sobolev loss or error certificate.",
+    "Finite-difference agreement checks the discrete RK4 gradient on one declared small model.",
+    "Derivative magnitudes are diagnostics, not acceptance thresholds for convergence or originality.",
+    "Local CPU timings include Python/JAX tracing and competing processes; they are not isolated performance benchmarks."
+  ]
+}

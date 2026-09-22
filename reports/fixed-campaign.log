@@ -1,0 +1,15 @@
+{"task": "fixed-uniform-s0", "process_status": "EXITED", "seconds": 12.88780479109846}
+{"task": "fixed-heat1d-s0", "process_status": "EXITED", "seconds": 12.744776541134343}
+{"task": "fixed-heat2d-s0", "process_status": "EXITED", "seconds": 37.586947958916426}
+{"task": "fixed-doublewell-s0", "process_status": "EXITED", "seconds": 14.100234125042334}
+{"task": "fixed-coupled2d-s0", "process_status": "EXITED", "seconds": 72.78624950000085}
+{"task": "fixed-uniform-s1", "process_status": "EXITED", "seconds": 9.21203679102473}
+{"task": "fixed-heat1d-s1", "process_status": "EXITED", "seconds": 9.902108374983072}
+{"task": "fixed-heat2d-s1", "process_status": "EXITED", "seconds": 29.19896004209295}
+{"task": "fixed-doublewell-s1", "process_status": "EXITED", "seconds": 11.810288958949968}
+{"task": "fixed-coupled2d-s1", "process_status": "EXITED", "seconds": 72.59475820907392}
+{"task": "fixed-uniform-s2", "process_status": "EXITED", "seconds": 8.143576917005703}
+{"task": "fixed-heat1d-s2", "process_status": "EXITED", "seconds": 8.075210666982457}
+{"task": "fixed-heat2d-s2", "process_status": "EXITED", "seconds": 25.01265920791775}
+{"task": "fixed-doublewell-s2", "process_status": "EXITED", "seconds": 9.45334391691722}
+{"task": "fixed-coupled2d-s2", "process_status": "EXITED", "seconds": 62.10114033310674}

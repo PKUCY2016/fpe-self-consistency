@@ -1,0 +1,156 @@
+{
+  "created_utc": "2026-09-22T09:57:24.654979+00:00",
+  "status": "PASS",
+  "purpose": "Representative fixed-training equivalence after rejection-feedback-only v2 change",
+  "command": [
+    "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/env/bin/fpe",
+    "train",
+    "--problem",
+    "heat1d",
+    "--seed",
+    "0",
+    "--config",
+    "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/work/reuse-config.json",
+    "--run",
+    "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/work/fixed-heat1d-s0"
+  ],
+  "cwd": "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/work",
+  "returncode": 0,
+  "seconds": 9.444017125060782,
+  "stdout": "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/baseline.stdout.log",
+  "stderr": "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/baseline.stderr.log",
+  "v2_wheel_sha256": "2b17a615781ee78fe9928f4d7a9516019590de34491603440dd29bb85a9ba4cb",
+  "old_run": "/Users/yuchen/3. Project/Low priority/随机分析证明/fpe_solver/runs/acceptance-v1/fixed-heat1d-s0",
+  "new_run": "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/work/fixed-heat1d-s0",
+  "seed": 0,
+  "problem": "heat1d",
+  "configuration": {
+    "K": 2,
+    "p": 3,
+    "batch": 128,
+    "steps": 128,
+    "learning_rate": 0.01,
+    "updates": 500,
+    "clip_norm": 1.0,
+    "validation_samples": 4096,
+    "max_validation_samples": 16384,
+    "max_rounds": 12,
+    "max_seconds": 7200.0,
+    "residual_target": 0.004,
+    "max_steps": 4096
+  },
+  "checks": {
+    "old_trained": true,
+    "new_trained": true,
+    "same_initial_config": true,
+    "same_problem": true,
+    "same_seed": true,
+    "same_dependencies": true,
+    "v2_installed_matches_frozen_source": true,
+    "coefficient_bitwise_equal": true,
+    "rng_state_equal": true,
+    "optimizer_state_equal": true,
+    "unchanged_validation_functions": true,
+    "unchanged_numerical_modules_excluding_training_cache_interface": true,
+    "fixed_training_default_path_equivalent": true
+  },
+  "coefficient_shape": [
+    4,
+    5,
+    1
+  ],
+  "coefficient_max_abs_difference": 0.0,
+  "coefficient_l2_difference": 0.0,
+  "old_checkpoint": {
+    "file": "checkpoints/round-000-update-00500.npz",
+    "sha256": "a116d2136424a3716cc95721f0ce4862affc6805cf352d52a3df04635ec29f22"
+  },
+  "new_checkpoint": {
+    "file": "checkpoints/round-000-update-00500.npz",
+    "sha256": "a116d2136424a3716cc95721f0ce4862affc6805cf352d52a3df04635ec29f22"
+  },
+  "old_source_hashes": {
+    "basis.py": "b80fd1d5b5e1b18b2b6f42ba8bc052eb5ec72b1159245a521bebb1409cf6b2c5",
+    "runner.py": "a35f2c8ca1324fdcc016b41ae051a49204ccc627db6dd3fc15fd9bdc1f5dc91d",
+    "controller.py": "e9859115f95a2a60dd4c0af4c66951c270e41e154247b8ea4e0990f5298cca40",
+    "config.py": "804106d6280d6613268937cbe359734a9f74a0538207733b35452162fa3a2812",
+    "diagnostics.py": "1c0b2336c5fbc9d91d77d9db79a140401922ccb5c3c80b21182cdf0dab5ea319",
+    "evaluation.py": "785f42a316a5b5462d4f0235049403fc3ff4ec94cedf9d6695ec2eed13a059f6",
+    "__init__.py": "37d5a08bd3e073a0d90a12cd3b369e540bcdc52c12a18ba8c7c13f8cf37fcc26",
+    "flow.py": "d0dd62a9c1fe3e22b875e56aad1828ccc6d43776052133e6ca280818b0a62129",
+    "campaign.py": "ba2fec4a413c7c21f2b75ed23627b1242b6ea44c7c9075eeab9e4b258ff0d7bd",
+    "api.py": "b069cdf2e103a28085341b0542b8bb4c1940b038b32ed1876c13cd48581dd0ac",
+    "problems.py": "3b4f2749cf7badf52a1306f2e041fedc88dd642b1120538b9629a04b648178bc",
+    "cli.py": "e99f616b2529916edbcfa7a6c3ab0b16fbf473a84300681759db7672a839e577",
+    "image_experiment.py": "10ed637fdfa2ff819262d6ea6fab16b683ea6d24697840b452073fa80d1237a5",
+    "storage.py": "02a1d2185e0e7aef983a03d97a1a3f245bcfaa644f60efe33546b98b794b5ed2",
+    "reference.py": "361d212f2a9de02adc931f318c623808badaccbceff1d7606e050f40f680340d",
+    "training.py": "1a4271602cb9f6f2e859c22c697cfc21acbb0eb43540d3f365f1042696b9f642"
+  },
+  "new_source_hashes": {
+    "basis.py": "b80fd1d5b5e1b18b2b6f42ba8bc052eb5ec72b1159245a521bebb1409cf6b2c5",
+    "runner.py": "174882fbb2ce57218bffd223a0dcc2b492d9ad2c173b21bb2fd8817285201e47",
+    "controller.py": "17459de38f0f4fc0338bb0508dd17450f556a7b4293d4a7fb846272613e7f574",
+    "config.py": "804106d6280d6613268937cbe359734a9f74a0538207733b35452162fa3a2812",
+    "diagnostics.py": "1c0b2336c5fbc9d91d77d9db79a140401922ccb5c3c80b21182cdf0dab5ea319",
+    "evaluation.py": "785f42a316a5b5462d4f0235049403fc3ff4ec94cedf9d6695ec2eed13a059f6",
+    "__init__.py": "37d5a08bd3e073a0d90a12cd3b369e540bcdc52c12a18ba8c7c13f8cf37fcc26",
+    "flow.py": "d0dd62a9c1fe3e22b875e56aad1828ccc6d43776052133e6ca280818b0a62129",
+    "campaign.py": "3912323eebe3dd363a58fd3d515c8e5d6da225661c11d0eceef25f04364d8cb0",
+    "api.py": "b069cdf2e103a28085341b0542b8bb4c1940b038b32ed1876c13cd48581dd0ac",
+    "problems.py": "3b4f2749cf7badf52a1306f2e041fedc88dd642b1120538b9629a04b648178bc",
+    "cli.py": "e99f616b2529916edbcfa7a6c3ab0b16fbf473a84300681759db7672a839e577",
+    "image_experiment.py": "10ed637fdfa2ff819262d6ea6fab16b683ea6d24697840b452073fa80d1237a5",
+    "storage.py": "02a1d2185e0e7aef983a03d97a1a3f245bcfaa644f60efe33546b98b794b5ed2",
+    "reference.py": "361d212f2a9de02adc931f318c623808badaccbceff1d7606e050f40f680340d",
+    "training.py": "1fb5f7897063fa1c3ee9d9f48e0cc37495212e3817bf7338c6736a76dda5976b"
+  },
+  "changed_source_modules": [
+    "runner.py",
+    "controller.py",
+    "campaign.py",
+    "training.py"
+  ],
+  "old_state_sha256": "18ebf3ced4dd57aa630c97a930df2c56b80c4aca776ad8277ad8a64c1bfdaeaa",
+  "new_state_sha256": "1086763a5bdd751f2631e91dac761bd48d913f74d97b86fb1d327a6aa705d703",
+  "reuse_scope": {
+    "directly_repeated": "fixed heat1d seed 0; parameter, RNG and optimizer equality",
+    "structural_argument": "The changed rejected-candidate feedback is only reached when an incumbent exists and an evolution run continues. Fixed train mode exits after its initial candidate.",
+    "source_condition": "Basis, flow, sampler, score diagnostics, evaluation and validation are unchanged. Training changed by an optional compiled-update interface whose default path is identical; exact previous source reconstruction matches the recorded old hash.",
+    "limitation": "Representative equivalence plus unchanged-code argument does not rerun all 15 fixed baselines; historical timings remain nonexclusive v1 observations."
+  },
+  "unchanged_core_modules": {
+    "basis.py": true,
+    "flow.py": true,
+    "problems.py": true,
+    "training.py": false,
+    "diagnostics.py": true,
+    "evaluation.py": true,
+    "reference.py": true,
+    "config.py": true,
+    "storage.py": true
+  },
+  "unchanged_validation_functions": {
+    "sample_key": true,
+    "paired_gate": true,
+    "validate_candidate": true
+  },
+  "training_cache_interface_review": {
+    "previous_training_source_reconstructed_exactly": true,
+    "recorded_and_reconstructed_sha256": "1a4271602cb9f6f2e859c22c697cfc21acbb0eb43540d3f365f1042696b9f642",
+    "current_training_sha256": "1fb5f7897063fa1c3ee9d9f48e0cc37495212e3817bf7338c6736a76dda5976b",
+    "reconstruction_path": "/private/tmp/fpe-wheel-delivery-v2-9xxk4v_r/training-v1-reconstructed.py",
+    "only_text_changes": [
+      "Optional compiled_update=None argument",
+      "Select supplied compiled update when explicitly supplied",
+      "Return compiled update handle in result"
+    ],
+    "unchanged_function_asts": {
+      "optimizer": true,
+      "residual_samples": true
+    },
+    "jit_update_ast_unchanged": true,
+    "fixed_runner_does_not_supply_optional_cache": true,
+    "meaning": "The file hash changed, but the fixed-run default computation and random/optimizer trajectory are unchanged."
+  }
+}

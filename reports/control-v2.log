@@ -1,0 +1,6 @@
+{"task": "control-evolve-s0", "process_status": "EXITED", "seconds": 55.81767304078676}
+{"task": "control-fixed_budget_control-s0", "process_status": "EXITED", "seconds": 48.00632912502624}
+{"task": "control-evolve-s1", "process_status": "EXITED", "seconds": 48.741459915880114}
+{"task": "control-fixed_budget_control-s1", "process_status": "EXITED", "seconds": 45.897032958921045}
+{"task": "control-evolve-s2", "process_status": "EXITED", "seconds": 54.06396795809269}
+{"task": "control-fixed_budget_control-s2", "process_status": "EXITED", "seconds": 49.54088475019671}
